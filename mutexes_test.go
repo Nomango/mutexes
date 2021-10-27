@@ -11,12 +11,12 @@ import (
 func TestMutexesDrop(t *testing.T) {
 	var m mutexes.Mutexes
 
-	m.Get("test").Lock()
+	m.Lock("test")
 	time.Sleep(time.Millisecond * 20)
 	runtime.GC()
 	time.Sleep(time.Millisecond * 20)
 
-	m.Get("test").Unlock()
+	m.Unlock("test")
 	time.Sleep(time.Millisecond * 20)
 	runtime.GC()
 	time.Sleep(time.Millisecond * 20)
